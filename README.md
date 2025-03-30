@@ -52,6 +52,12 @@ python main.py
 
 The evaluation results will be saved to test_results.csv.
 
+4. Generative model:
+
+For generative model, first enter the prompt-generation folder.
+(2) use download_data.py file to firstly download data
+(3) use encoder_decoder.py to train on data
+(4) use generate_pro_new.py to do a test on the model
 
 ### Results
 The evaluation results will include the cosine similarity between the predicted text embeddings and the actual text embeddings for each image. A higher cosine similarity indicates better performance.
