@@ -12,16 +12,18 @@ import pandas as pd
 class EncoderCNN(nn.Module):
     def __init__(self, embed_size):
         super().__init__()
+        # Load pre-trained ResNet50
         resnet = models.resnet50(pretrained=True)
-        modules = list(resnet.children())[:-1]  # remove final fc layer
+        modules = list(resnet.children())[:-1]
         self.resnet = nn.Sequential(*modules)
         self.fc = nn.Linear(resnet.fc.in_features, embed_size)
 
     def forward(self, images):
+        # Freeze ResNet weights
         with torch.no_grad():
             features = self.resnet(images).squeeze(-1).squeeze(-1)
         embeddings = self.fc(features)
-        return embeddings  # [batch_size, embed_size]
+        return embeddings
 
 
 class ImageCaptioningModel(nn.Module):
@@ -29,16 +31,18 @@ class ImageCaptioningModel(nn.Module):
         super().__init__()
         self.encoder = encoder
         self.decoder = decoder
+        # Match encoder output to GPT2 hidden size
         self.fc = nn.Linear(embed_dim, decoder.config.n_embd)
 
     def forward(self, images, captions=None, attention_mask=None):
         img_embed = self.encoder(images)
-        img_embed = self.fc(img_embed).unsqueeze(1)  # [B, 1, hidden_size]
+        img_embed = self.fc(img_embed).unsqueeze(1)
 
         if captions is not None:
             inputs_embeds = self.decoder.transformer.wte(captions)
             inputs_embeds = torch.cat((img_embed, inputs_embeds), dim=1)
 
+            # Adjust attention mask to account for image token
             if attention_mask is not None:
                 prefix_mask = torch.ones(
                     (attention_mask.size(0), 1), dtype=attention_mask.dtype
