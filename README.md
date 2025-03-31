@@ -54,15 +54,15 @@ The evaluation results will be saved to test_results.csv.
 
 4. Generative model:
 
-For generative model, first enter the prompt-generation folder.
+For our generative model, first enter the prompt-generation folder.
 
-(2) use download_data.py file to firstly download data
+(2) execute download_data.py file to firstly download data
 
-(3) use encoder_decoder.py to train on data
+(3) execute encoder_decoder.py to train on data
 
-(4) use generate_pro_new.py to do a test on the model
+(4) execute generate_pro_new.py to do a test on the model with image provided in the file
 
 ### Results
 The evaluation results will include the cosine similarity between the predicted text embeddings and the actual text embeddings for each image. A higher cosine similarity indicates better performance.
 
-### There are two files too large(bert_localpath and best_model.pth), and we cannot submit them through ZIP. So we will sumbit them to instructors by google email. Please put the two files together with main.py when running the main.code
+### There are two files too large(bert_localpath and best_model.pth), and we cannot submit them through ZIP. So we will sumbit them to instructors by google email. Please put the two files together with main.py when running the main.code. For bert_localpath, another way is to download it through google drive link (https://drive.google.com/drive/folders/1NWTbBwEchdiJEyoQL5NLeNT4KWnGUQYx?usp=sharing) and put it under the same directory of main,py

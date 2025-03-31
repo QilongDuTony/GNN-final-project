@@ -179,6 +179,9 @@ if __name__ == "__main__":
     )
     # NOTE: below folder "./bert_localpath/" is required but not present in the github link or ziped file due to large file size issue,
     # we have emailed instructor to try to address this issue. As long as the folder exist, program can run without an issue
+    # Another way is to download it through google drive link
+    # (https://drive.google.com/drive/folders/1NWTbBwEchdiJEyoQL5NLeNT4KWnGUQYx?usp=sharing)
+    # and put it under the same directory of main,py
     model_path = "./bert_localpath/"
     tokenizer = BertTokenizer.from_pretrained(model_path)
     text_encoder = BertModel.from_pretrained(model_path)
