@@ -65,3 +65,4 @@ For generative model, first enter the prompt-generation folder.
 ### Results
 The evaluation results will include the cosine similarity between the predicted text embeddings and the actual text embeddings for each image. A higher cosine similarity indicates better performance.
 
+### There are two files too large(bert_localpath and best_model.pth), and we cannot submit them through ZIP. So we will sumbit them to instructors by google email. Please put the two files together with main.py when running the main.code
