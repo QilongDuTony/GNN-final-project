@@ -177,7 +177,8 @@ if __name__ == "__main__":
             transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
         ]
     )
-
+    # NOTE: below folder "./bert_localpath/" is required but not present in the github link or ziped file due to large file size issue,
+    # we have emailed instructor to try to address this issue. As long as the folder exist, program can run without an issue
     model_path = "./bert_localpath/"
     tokenizer = BertTokenizer.from_pretrained(model_path)
     text_encoder = BertModel.from_pretrained(model_path)
