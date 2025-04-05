@@ -6,8 +6,8 @@ from encoder_decoder import EncoderCNN, ImageCaptioningModel
 
 # Config
 embed_dim = 512
-image_path = "./rougelike_game.jpeg"  # ./data/diffusiondb_images/image_0000.png
-model_path = "./caption_model.pth"
+image_path = "./distant_desert.jpeg"  # ./data/diffusiondb_images/image_0000.png
+model_path = "./best_model.pth"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load tokenizer and decoder
